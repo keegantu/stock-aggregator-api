@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 import os
 import redis
 import json
@@ -13,7 +14,13 @@ ALPHA_VANTAGE_KEY = os.getenv("ALPHA_VANTAGE_KEY")
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (for testing)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/stocks/{symbol}")
