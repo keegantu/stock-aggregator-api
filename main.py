@@ -47,6 +47,7 @@ async def get_stock(symbol: str):
         
    # overview_data = overview_response.json()
     global_quote_data = global_quote_response.json()
+    print("AV response:", global_quote_data)
 
     if "Global Quote" in global_quote_data and "05. price" in global_quote_data["Global Quote"]:
         news_data = news_response.json()
