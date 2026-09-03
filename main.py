@@ -33,6 +33,7 @@ async def get_stock(symbol: str):
     
     # Check cache
     cached_data = r.get(cache_key)
+    print("cache hit:", cached_data)
     if cached_data:
         return json.loads(cached_data)
     
