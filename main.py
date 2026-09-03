@@ -14,6 +14,9 @@ load_dotenv()
 ALPHA_VANTAGE_KEY = os.getenv("ALPHA_VANTAGE_KEY")
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
+print("KEY:", ALPHA_VANTAGE_KEY)
+print("URL:", global_quote_url)
+
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
