@@ -7,7 +7,8 @@ import json
 import httpx
 import asyncio
 
-r = redis.Redis(host='localhost', port=6379, decode_responses=True)
+r = redis.Redis.from_url(os.getenv("REDIS_URL"), decode_responses=True)
+
 
 load_dotenv()
 ALPHA_VANTAGE_KEY = os.getenv("ALPHA_VANTAGE_KEY")
